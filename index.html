@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Discover exceptional homes for rent and sale across the United States with USA Real Estate.">
+  <meta name="theme-color" content="#101b2b">
+  <title>USA Real Estate | Find Your Next Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="features.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/ref.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#"><span class="brand-mark">U</span><span>USA <b>REAL ESTATE</b></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+    <nav id="mainNav">
+      <a href="#properties">Properties</a><a href="#about">About</a><a href="#contact">Contact</a>
+      <a class="nav-admin" href="admin.html">Admin Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">A BETTER WAY TO FIND HOME</p>
+        <h1>Find a place<br><em>to call yours.</em></h1>
+        <p class="hero-copy">Explore thoughtfully selected homes for rent and sale across the United States.</p>
+        <a class="button button-gold" href="#properties">Explore properties <span>↗</span></a>
+      </div>
+      <div class="hero-note"><span class="note-line"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+    </section>
+
+    <section class="search-wrap" aria-label="Property search">
+      <form id="searchForm" class="search-panel">
+        <label>I'm looking to
+          <select id="filterType"><option value="">Rent or buy</option><option value="rent">Rent</option><option value="sale">Buy</option></select>
+        </label>
+        <label>Location
+          <input id="filterLocation" type="search" placeholder="City, state or ZIP">
+        </label>
+        <label>Bedrooms
+          <select id="filterBeds"><option value="">Any</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+        </label>
+        <button class="button button-dark" type="submit">Search homes <span>→</span></button>
+      </form>
+    </section>
+
+    <section class="section properties-section" id="properties">
+      <div class="section-heading">
+        <div><p class="eyebrow dark-eyebrow">CURATED FOR YOU</p><h2>Featured properties</h2></div>
+        <p>Find the right space, in the right place.<br>New opportunities are added regularly.</p>
+      </div>
+      <div id="propertyGrid" class="property-grid">
+        <div class="empty-state">Loading available properties…</div>
+      </div>
+      <p id="propertyMessage" class="form-message" aria-live="polite"></p>
+    </section>
+
+    <section class="statement" id="about">
+      <div class="statement-image"></div>
+      <div class="statement-copy">
+        <p class="eyebrow">THE USA REAL ESTATE DIFFERENCE</p>
+        <h2>More than a property.<br><em>A place to belong.</em></h2>
+        <p>Whether you're searching for your first apartment, a family home, or your next investment, we're here to help you take the next step with confidence.</p>
+        <a href="#contact" class="text-link">Talk with our team <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="contact-intro">
+        <p class="eyebrow dark-eyebrow">LET'S CONNECT</p>
+        <h2>Your next move<br><em>starts here.</em></h2>
+        <p>Tell us what you're looking for. A member of our team will follow up using the contact details you provide.</p>
+        <div class="contact-detail"><span>✉</span> Contact our real estate team</div>
+      </div>
+      <form id="leadForm" class="lead-form">
+        <div class="form-title"><h3>Request information</h3><p>All fields marked * are required.</p></div>
+        <div id="selectedProperty" class="selected-property" hidden>
+          <div><span>Asking about</span><b id="selectedPropertyTitle"></b><small id="selectedPropertyMeta"></small></div>
+          <button type="button" id="clearProperty" aria-label="Remove selected property">×</button>
+        </div>
+        <input type="hidden" name="property_id" value="">
+        <div class="form-row">
+          <label>Full name *<input name="full_name" required maxlength="120" autocomplete="name" placeholder="Your full name"></label>
+          <label>Phone number *<input name="phone" required maxlength="30" autocomplete="tel" placeholder="+1 (555) 000-0000"></label>
+        </div>
+        <label>Email address (optional)<input name="email" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com"></label>
+        <div class="form-row">
+          <label>I'm interested in *
+            <select name="interest" required><option value="">Choose one</option><option value="rent">Renting</option><option value="buy">Buying</option><option value="both">Both</option></select>
+          </label>
+          <label>Preferred location<input name="preferred_location" maxlength="160" placeholder="City, state or ZIP"></label>
+        </div>
+        <label>Tell us what you need<textarea name="message" rows="3" maxlength="2000" placeholder="Move-in date, budget, bedrooms, or any questions…"></textarea></label>
+        <label class="consent"><input type="checkbox" name="contact_consent" required> <span>I agree that USA Real Estate may contact me about my inquiry by phone or email. I understand that submitting this form does not guarantee a property or create a brokerage relationship.</span></label>
+        <label class="consent optional-consent"><input type="checkbox" name="marketing_consent"> <span>I would also like to receive occasional property updates and marketing messages. (Optional)</span></label>
+        <button class="button button-dark full-button" type="submit">Send my request <span>→</span></button>
+        <p id="leadMessage" class="form-message" role="status" aria-live="polite"></p>
+        <p class="privacy-note">Your information is used to respond to your inquiry. See our <a href="privacy.html">Privacy Notice</a>.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark">U</span><span>USA <b>REAL ESTATE</b></span></a>
+    <p>Helping you find your place across America.</p>
+    <div><a href="privacy.html">Privacy</a><a href="staff.html">Manage rental</a><a href="admin.html">Admin</a></div>
+    <small>© <span id="year"></span> USA Real Estate. All rights reserved.</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/* v2 features: property-linked inquiries, photo upload, richer lead table */
+
+/* --- public site: selected property chip in the inquiry form --- */
+.selected-property{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--gold);padding:12px 14px}
+.selected-property[hidden]{display:none}
+.selected-property div{min-width:0}
+.selected-property span{display:block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#a78349;font-weight:700;margin-bottom:4px}
+.selected-property b{display:block;font-size:13px;color:var(--navy)}
+.selected-property small{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+.selected-property button{background:none;border:0;cursor:pointer;font-size:24px;line-height:1;color:#7a8490;padding:2px 8px}
+.selected-property button:hover{color:var(--navy)}
+.property-card.highlight{outline:2px solid var(--gold);outline-offset:4px}
+
+/* --- admin: photo upload + tables --- */
+.file-hint{font-weight:400;color:#737d87;font-size:11px;margin-left:6px}
+.property-admin-form input[type=file]{background:#faf9f6;padding:10px}
+.image-preview{display:flex;align-items:center;gap:14px}
+.image-preview img{width:128px;height:86px;object-fit:cover;border:1px solid #e5e2db;background:#f1efe9}
+.heading-actions{display:flex;gap:10px;flex-wrap:wrap}
+.prop-cell{display:flex;align-items:center;gap:12px}
+.prop-thumb{width:64px;height:44px;object-fit:cover;background:#ecebe6;border:1px solid #e5e2db;flex:0 0 auto;display:block}
+.lead-property b{display:block;color:#172538}
+.lead-property small{display:block;color:#737d87;line-height:1.5}
+.lead-property a{display:inline-block;margin-top:4px;color:#98733d;font-weight:700;font-size:11px}
+.msg-cell{max-width:240px;line-height:1.5;color:#5a6672}
+#leadsPanel table{min-width:1000px}
+#propertiesPanel table{min-width:860px}
+
+/* --- v3: multiple photos --- */
+.image-preview{display:block}
+.preview-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;font-size:12px;color:#46515d;font-weight:700}
+.thumb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}
+.thumb-item{position:relative;margin:0}
+.thumb-item img{width:100%;height:80px;object-fit:cover;border:1px solid #e5e2db;display:block;background:#f1efe9}
+.thumb-remove{position:absolute;top:4px;right:4px;width:22px;height:22px;border:0;border-radius:50%;background:rgba(16,27,43,.85);color:#fff;font-size:15px;line-height:1;cursor:pointer}
+.thumb-cover{position:absolute;left:4px;bottom:4px;background:var(--gold);color:#111c2b;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 6px}
+.gal-btn{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:rgba(16,27,43,.75);color:#fff;font-size:22px;line-height:1;cursor:pointer;z-index:2;opacity:0;transition:.2s}
+.gal-prev{left:10px}.gal-next{right:10px}
+.property-image:hover .gal-btn,.gal-btn:focus-visible{opacity:1}
+@media(hover:none){.gal-btn{opacity:1}}
+.gal-count{position:absolute;right:12px;bottom:12px;background:rgba(16,27,43,.75);color:#fff;font-size:10px;letter-spacing:1px;padding:5px 8px;z-index:2}
+
+/* --- v4: property details page + broken-photo placeholder --- */
+[hidden]{display:none!important}
+.property-image.no-photo img{display:none}
+.property-image.no-photo::after,.pd-stage.no-photo::after{content:"Photo coming soon";position:absolute;inset:0;display:grid;place-items:center;color:#8a929b;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+.property-link{margin-right:12px}
+.pd-page{max-width:1200px;margin:0 auto;padding:48px 24px 90px}
+.pd-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:start}
+.pd-gallery{background:#fff}
+.pd-stage{position:relative;aspect-ratio:3/2;background:#e6e7e8;overflow:hidden}
+.pd-stage img{width:100%;height:100%;object-fit:cover;display:block}
+.pd-stage .gal-btn{opacity:1;width:42px;height:42px;font-size:26px}
+.pd-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin-top:8px}
+.pd-thumbs button{padding:0;border:2px solid transparent;background:#e6e7e8;cursor:pointer;aspect-ratio:4/3;overflow:hidden}
+.pd-thumbs button.active{border-color:var(--gold)}
+.pd-thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.pd-info{padding-top:28px}
+.pd-info h1{font:600 clamp(28px,3.4vw,40px)/1.15 "Playfair Display",serif;color:var(--navy);margin:0 0 10px}
+.pd-info .property-price{font-size:30px}
+.pd-info .property-address{font-size:14px;margin-bottom:22px}
+.pd-facts{list-style:none;margin:0 0 30px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 38px}
+.pd-facts li b{display:block;font-size:17px;color:var(--navy)}
+.pd-facts li span{display:block;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.pd-info h2{font:600 22px "Playfair Display",serif;color:var(--navy);margin:0 0 10px}
+.pd-desc{font-size:14px;line-height:1.9;color:#4b5663;white-space:pre-line;margin:0}
+.pd-aside{position:sticky;top:20px}
+.pd-aside .lead-form{box-shadow:0 8px 30px #17253818;border-top:3px solid var(--gold)}
+.pd-missing{text-align:center;padding:80px 0}
+.pd-missing h1{font:600 38px "Playfair Display",serif;color:var(--navy);margin:0 0 12px}
+.pd-missing p{color:var(--muted);font-size:14px;margin:0 0 28px}
+@media(max-width:900px){.pd-grid{grid-template-columns:1fr;gap:10px}.pd-aside{position:static;margin-top:20px}.pd-page{padding:28px 16px 70px}}
+
+/* --- v5: edit / delete properties, clickable cards, details list --- */
+.property-card{cursor:pointer}
+.property-info h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.property-info h3 a:hover{color:#98733d}
+.property-admin-form label.check-row{flex-direction:row;align-items:center;gap:10px;font-weight:600}
+.property-admin-form label.check-row input{width:auto;padding:0;margin:0}
+.form-buttons{display:flex;gap:10px;flex-wrap:wrap}
+.row-actions{white-space:nowrap}
+.row-actions .status-select{margin:0 6px 6px 0;cursor:pointer}
+.status-select.danger{color:#b33b35;border-color:#e3b9b6}
+.status-select.danger:hover{background:#fdf1f0}
+.row-hidden{background:#faf7f2}
+.row-hidden .prop-thumb{opacity:.55}
+.badge-hidden{display:inline-block;background:#efe6d6;color:#8a6a33;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;margin-left:4px}
+.prop-thumb.broken{display:grid;place-items:center;font-size:9px;color:#b33b35;text-align:center;background:#fbeeed}
+.thumb-make{position:absolute;left:4px;bottom:4px;border:0;background:rgba(16,27,43,.85);color:#fff;font-size:9px;letter-spacing:.8px;text-transform:uppercase;padding:3px 6px;cursor:pointer}
+.thumb-item.broken img{visibility:hidden}
+.thumb-item.broken{background:#fbeeed;min-height:80px}
+.thumb-item.broken::after{content:"Not loading";position:absolute;inset:0;display:grid;place-items:center;font-size:10px;color:#b33b35}
+.pd-details{margin-top:34px}
+.pd-details dl{display:grid;grid-template-columns:170px 1fr;margin:0;border-top:1px solid var(--line)}
+.pd-details dt,.pd-details dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}
+.pd-details dt{color:var(--muted)}
+.pd-details dd{color:var(--navy);font-weight:600}
+.pd-map{display:inline-block;margin-top:18px;font-size:12px;font-weight:700;color:#98733d;border-bottom:1px solid #c9a96e;padding-bottom:4px}
+@media(max-width:600px){.pd-details dl{grid-template-columns:120px 1fr}}
+
+/* --- v6: team / staff area --- */
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:28px}
+.stat-card{background:#fff;border:1px solid #e6e3dd;border-top:3px solid var(--gold);padding:16px 18px}
+.stat-card span{display:block;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#737d87;font-weight:700}
+.stat-card b{display:block;font:600 34px "Playfair Display",serif;color:#172538;margin-top:6px}
+.link-box{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;background:#fff;border:1px solid #e6e3dd;padding:16px;margin:14px 0 22px}
+.link-box label{flex:1 1 320px;display:flex;flex-direction:column;gap:8px;font-size:11px;font-weight:700;color:#46515d}
+.link-box input{padding:12px;border:1px solid #e5e2db;font:13px "DM Sans",sans-serif;background:#faf9f6;width:100%}
+.sub-heading{font:600 23px "Playfair Display",serif;color:#172538;margin:38px 0 14px}
+.report-filters{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.report-filters label{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:700;color:#46515d}
+.report-filters input{padding:10px;border:1px solid #e5e2db;font:13px "DM Sans",sans-serif}
+.total-row td{background:#faf9f6}
+#teamPanel table{min-width:860px}
+#teamPanel #dailyTable{min-width:0}
+#teamPanel code{background:#f1efe9;padding:2px 6px;font-size:11px}
+.staff-table{min-width:640px}
+.staff-table.wide{min-width:900px}
+@media(max-width:650px){.link-box{flex-direction:column;align-items:stretch}}
+
+/* --- v7: advanced details + Manage rental --- */
+.form-subhead{font:700 11px "DM Sans",sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#a78349;border-top:1px solid #eee;padding-top:16px;display:flex;justify-content:space-between;align-items:center}
+.form-subhead span{font-weight:400;letter-spacing:0;text-transform:none;color:#737d87}
+.property-admin-form .form-row label.check-row{align-self:end;padding-bottom:12px}
