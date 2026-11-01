@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Admin | USA Real Estate</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="features.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script defer src="js/xlsx-lite.js"></script><script defer src="js/export.js"></script><script defer src="js/quickfill.js"></script><script defer src="js/admin.js"></script></head>
+<body class="admin-body">
+<header class="admin-header"><a class="brand" href="index.html"><span class="brand-mark">U</span><span>USA <b>REAL ESTATE</b></span></a><a href="index.html">← View website</a></header>
+<main class="admin-main">
+<section id="loginPanel" class="admin-login"><p class="eyebrow dark-eyebrow">SECURE ADMIN AREA</p><h1>Welcome back.</h1><p>Sign in with your authorized administrator account.</p>
+<form id="loginForm"><label>Email address<input name="email" type="email" required autocomplete="username" placeholder="admin@example.com"></label><label>Password<input name="password" type="password" required autocomplete="current-password" placeholder="Your password"></label><button class="button button-dark full-button">Sign in <span>→</span></button><p id="loginMessage" class="form-message" role="status"></p></form></section>
+<section id="dashboard" hidden>
+<div class="dashboard-top"><div><p class="eyebrow dark-eyebrow">USA REAL ESTATE</p><h1>Lead dashboard</h1><p class="muted">Manage inquiries and property listings.</p></div><button id="logoutBtn" class="button button-dark">Sign out</button></div>
+<div class="tabs"><button class="tab active" data-tab="leads">Customer leads</button><button class="tab" data-tab="properties">Properties</button></div>
+<div id="leadsPanel"><div class="panel-heading"><h2>Customer inquiries</h2><div class="heading-actions"><button id="exportLeads" class="button button-dark">Download Excel</button><button id="refreshLeads" class="button button-outline">Refresh</button></div></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Customer</th><th>Looking for</th><th>Property of interest</th><th>Message</th><th>Status</th></tr></thead><tbody id="leadsBody"><tr><td colspan="6">Loading…</td></tr></tbody></table></div></div>
+<div id="propertiesPanel" hidden><div class="panel-heading"><h2>Property listings</h2></div>
+<form id="propertyForm" class="property-admin-form"><h3>Add a property</h3>
+<div class="quickfill"><h4>Quick fill from your Facebook post</h4><p class="file-hint">Open your Facebook / Marketplace post, copy its text, paste it below and press Auto-fill. Phone numbers, emails and links are removed from the public description. Always check the fields before saving.</p><textarea id="qfText" rows="4" placeholder="Paste the post text here…"></textarea><div class="qf-actions"><button type="button" id="qfRun" class="button button-outline">Auto-fill form</button><span id="qfMsg" class="form-message" role="status"></span></div></div>
+<label>Facebook post link (optional)<input name="source_url" type="url" maxlength="1000" placeholder="https://www.facebook.com/…"></label>
+<div class="form-row"><label>Title *<input name="title" required maxlength="160"></label><label>Listing type *<select name="listing_type" required><option value="rent">For rent</option><option value="sale">For sale</option></select></label></div>
+<div class="form-row"><label>Price (USD) *<input name="price" type="number" min="0" required></label><label>Property type *<select name="property_type" required><option value="house">House</option><option value="apartment">Apartment</option><option value="condo">Condo</option><option value="townhouse">Townhouse</option><option value="room">Room</option><option value="other">Other</option></select></label></div>
+<div class="photo-field"><label for="propertyImages">Property photos <span class="file-hint">Add as many as you like (JPG, PNG, WebP). The first photo is the cover. Photos are resized automatically.</span></label>
+<div id="photoDrop" class="photo-drop"><input id="propertyImages" type="file" accept="image/jpeg,image/png,image/webp" multiple><span class="file-hint">You can select many photos at once, or drag &amp; drop them here.</span><div id="pickGrid" class="pick-grid" hidden></div><p id="pickInfo" class="file-hint"></p></div></div>
+<label>Street address<input name="address" maxlength="200"></label>
+<div class="form-row"><label>City<input name="city"></label><label>State<input name="state" maxlength="2" placeholder="NY"></label><label>ZIP<input name="zip_code" maxlength="12"></label></div>
+<div class="form-row"><label>Bedrooms<input name="beds" type="number" min="0" value="1"></label><label>Bathrooms<input name="baths" type="number" min="0" step=".5" value="1"></label><label>Sq Ft<input name="sqft" type="number" min="0"></label></div>
+<label>Description<textarea name="description" rows="4"></textarea></label>
+<button type="submit" class="button button-dark">Add property <span>→</span></button><p id="propertyMessage" class="form-message" role="status"></p></form>
+<div class="table-wrap"><table><thead><tr><th>Property</th><th>Location</th><th>Price</th><th>Listing</th><th>Link</th><th>Action</th></tr></thead><tbody id="propertiesBody"></tbody></table></div></div>
+</section>
+</main></body></html>
