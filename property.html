@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101b2b">
+  <title>Property details | USA Tolet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="features.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/ref.js"></script>
+  <script defer src="js/property.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">U</span><span>USA <b>TOLET</b></span></a>
+    <a href="index.html#properties">← All properties</a>
+  </header>
+
+  <main class="pd-page">
+    <div id="pdLoading" class="empty-state">Loading property…</div>
+
+    <div id="pdMissing" class="pd-missing" hidden>
+      <h1>Property not available</h1>
+      <p id="pdMissingText">This property may have been removed or is no longer available.</p>
+      <a class="button button-dark" href="index.html#properties">See other properties <span>→</span></a>
+    </div>
+
+    <div id="pdView" class="pd-grid" hidden>
+      <div class="pd-main">
+        <div class="pd-gallery">
+          <div id="pdStage" class="pd-stage">
+            <img id="pdMain" alt="" referrerpolicy="no-referrer">
+            <span id="pdTag" class="property-tag"></span>
+            <button type="button" id="pdPrev" class="gal-btn gal-prev" aria-label="Previous photo">‹</button>
+            <button type="button" id="pdNext" class="gal-btn gal-next" aria-label="Next photo">›</button>
+            <span id="pdCount" class="gal-count"></span>
+          </div>
+          <div id="pdThumbs" class="pd-thumbs"></div>
+        </div>
+
+        <div class="pd-info">
+          <p id="pdPrice" class="property-price"></p>
+          <h1 id="pdTitle"></h1>
+          <p id="pdAddress" class="property-address"></p>
+          <ul id="pdFacts" class="pd-facts"></ul>
+          <div id="pdDescWrap">
+            <h2>About this property</h2>
+            <p id="pdDesc" class="pd-desc"></p>
+          </div>
+          <div class="pd-details">
+            <h2>Property details</h2>
+            <dl id="pdDetails"></dl>
+            <a id="pdMap" class="pd-map" target="_blank" rel="noopener" hidden>View on Google Maps ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="pd-aside">
+        <form id="leadForm" class="lead-form">
+          <div class="form-title"><h3>Interested in this property?</h3><p>Leave your details and our team will contact you. Fields marked * are required.</p></div>
+          <div class="form-row">
+            <label>Full name *<input name="full_name" required maxlength="120" autocomplete="name" placeholder="Your full name"></label>
+            <label>Phone number *<input name="phone" required maxlength="30" autocomplete="tel" placeholder="+1 (555) 000-0000"></label>
+          </div>
+          <label>Email address (optional)<input name="email" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com"></label>
+          <label>I'm interested in *
+            <select name="interest" required><option value="">Choose one</option><option value="rent">Renting</option><option value="buy">Buying</option><option value="both">Both</option></select>
+          </label>
+          <label>Questions or move-in date<textarea name="message" rows="3" maxlength="2000" placeholder="Move-in date, budget, or any questions…"></textarea></label>
+          <label class="consent"><input type="checkbox" name="contact_consent" required> <span>I agree that USA Tolet may contact me about my inquiry by phone or email. I understand that submitting this form does not guarantee a property or create a brokerage relationship.</span></label>
+          <label class="consent optional-consent"><input type="checkbox" name="marketing_consent"> <span>I would also like to receive occasional property updates and marketing messages. (Optional)</span></label>
+          <button class="button button-dark full-button" type="submit">Send my details <span>→</span></button>
+          <p id="leadMessage" class="form-message" role="status" aria-live="polite"></p>
+          <p class="privacy-note">Your information is used to respond to your inquiry. See our <a href="privacy.html">Privacy Notice</a>.</p>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html"><span class="brand-mark">U</span><span>USA <b>TOLET</b></span></a>
+    <p>Helping you find your place across America.</p>
+    <div><a href="privacy.html">Privacy</a><a href="staff.html">Staff</a><a href="admin.html">Admin</a></div>
+    <small>© <span id="year"></span> USA Tolet. All rights reserved.</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Employee area | USA Tolet</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="features.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script defer src="js/export.js"></script><script defer src="js/staff.js"></script></head>
+<body class="admin-body">
+<header class="admin-header"><a class="brand" href="index.html"><span class="brand-mark">U</span><span>USA <b>TOLET</b></span></a><a href="index.html">← View website</a></header>
+<main class="admin-main">
+
+<section id="loginPanel" class="admin-login"><p class="eyebrow dark-eyebrow">EMPLOYEE AREA</p><h1>Welcome.</h1><p>Sign in with the account your manager created for you.</p>
+<form id="loginForm"><label>Email address<input name="email" type="email" required autocomplete="username" placeholder="you@example.com"></label><label>Password<input name="password" type="password" required autocomplete="current-password" placeholder="Your password"></label><button class="button button-dark full-button">Sign in <span>→</span></button><p id="loginMessage" class="form-message" role="status"></p></form></section>
+
+<section id="dashboard" hidden>
+<div class="dashboard-top"><div><p class="eyebrow dark-eyebrow" id="staffSegment">EMPLOYEE</p><h1 id="staffName">My leads</h1><p class="muted" id="staffSub"></p></div><button id="logoutBtn" class="button button-dark">Sign out</button></div>
+
+<div class="stat-cards">
+<div class="stat-card"><span>Today</span><b id="statToday">0</b></div>
+<div class="stat-card"><span>Yesterday</span><b id="statYesterday">0</b></div>
+<div class="stat-card"><span>Last 7 days</span><b id="statWeek">0</b></div>
+<div class="stat-card"><span>Total leads</span><b id="statTotal">0</b></div>
+</div>
+
+<div class="tabs"><button class="tab active" data-tab="links">My post links</button><button class="tab" data-tab="leads">My leads</button><button class="tab" data-tab="daily">Daily count</button><button class="tab" data-tab="account">Account</button></div>
+
+<div data-panel="links">
+<div class="panel-heading"><h2>Your tracking links</h2></div>
+<p class="muted">Use these links in your posts. Every inquiry that comes through your link is counted for you.</p>
+<div class="link-box"><label>Your website link<input id="siteLink" readonly></label><button type="button" id="copySite" class="button button-dark">Copy link</button></div>
+<div class="table-wrap"><table class="staff-table"><thead><tr><th>Property</th><th>Price</th><th>Listing</th><th>Your link for this property</th></tr></thead><tbody id="propertiesBody"><tr><td colspan="4">Loading…</td></tr></tbody></table></div>
+</div>
+
+<div data-panel="leads" hidden>
+<div class="panel-heading"><h2>My leads</h2><div class="heading-actions"><button id="refreshLeads" class="button button-outline">Refresh</button></div></div>
+<div class="table-wrap"><table class="staff-table wide"><thead><tr><th>Date</th><th>Customer</th><th>Looking for</th><th>Property of interest</th><th>Message</th><th>Status</th></tr></thead><tbody id="leadsBody"><tr><td colspan="6">Loading…</td></tr></tbody></table></div>
+</div>
+
+<div data-panel="daily" hidden>
+<div class="panel-heading"><h2>Leads per day (last 30 days)</h2></div>
+<div class="table-wrap"><table class="staff-table"><thead><tr><th>Date</th><th>Leads</th></tr></thead><tbody id="dailyBody"></tbody></table></div>
+</div>
+
+<div data-panel="account" hidden>
+<div class="panel-heading"><h2>Change password</h2></div>
+<form id="passwordForm" class="property-admin-form"><label>New password <span class="file-hint">min 8 characters</span><input name="password" type="password" required minlength="8" maxlength="72" autocomplete="new-password"></label><label>Repeat new password<input name="password2" type="password" required minlength="8" maxlength="72" autocomplete="new-password"></label><button type="submit" class="button button-dark">Save password <span>→</span></button><p id="passwordMessage" class="form-message" role="status"></p></form>
+</div>
+
+</section>
+</main></body></html>

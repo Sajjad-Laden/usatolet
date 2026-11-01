@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Discover exceptional homes for rent and sale across the United States with USA Real Estate.">
+  <meta name="description" content="Discover exceptional homes for rent and sale across the United States with USA Tolet.">
   <meta name="theme-color" content="#101b2b">
-  <title>USA Real Estate | Find Your Next Home</title>
+  <title>USA Tolet | Find Your Next Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -13,11 +13,12 @@
   <link rel="stylesheet" href="features.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/config.js"></script>
+  <script src="js/ref.js"></script>
   <script defer src="js/app.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#"><span class="brand-mark">U</span><span>USA <b>REAL ESTATE</b></span></a>
+    <a class="brand" href="#"><span class="brand-mark">U</span><span>USA <b>TOLET</b></span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
     <nav id="mainNav">
       <a href="#properties">Properties</a><a href="#about">About</a><a href="#contact">Contact</a>
@@ -66,7 +67,7 @@
     <section class="statement" id="about">
       <div class="statement-image"></div>
       <div class="statement-copy">
-        <p class="eyebrow">THE USA REAL ESTATE DIFFERENCE</p>
+        <p class="eyebrow">THE USA TOLET DIFFERENCE</p>
         <h2>More than a property.<br><em>A place to belong.</em></h2>
         <p>Whether you're searching for your first apartment, a family home, or your next investment, we're here to help you take the next step with confidence.</p>
         <a href="#contact" class="text-link">Talk with our team <span>↗</span></a>
@@ -99,7 +100,7 @@
           <label>Preferred location<input name="preferred_location" maxlength="160" placeholder="City, state or ZIP"></label>
         </div>
         <label>Tell us what you need<textarea name="message" rows="3" maxlength="2000" placeholder="Move-in date, budget, bedrooms, or any questions…"></textarea></label>
-        <label class="consent"><input type="checkbox" name="contact_consent" required> <span>I agree that USA Real Estate may contact me about my inquiry by phone or email. I understand that submitting this form does not guarantee a property or create a brokerage relationship.</span></label>
+        <label class="consent"><input type="checkbox" name="contact_consent" required> <span>I agree that USA Tolet may contact me about my inquiry by phone or email. I understand that submitting this form does not guarantee a property or create a brokerage relationship.</span></label>
         <label class="consent optional-consent"><input type="checkbox" name="marketing_consent"> <span>I would also like to receive occasional property updates and marketing messages. (Optional)</span></label>
         <button class="button button-dark full-button" type="submit">Send my request <span>→</span></button>
         <p id="leadMessage" class="form-message" role="status" aria-live="polite"></p>
@@ -109,18 +110,10 @@
   </main>
 
   <footer class="site-footer">
-    <a class="brand footer-brand" href="#"><span class="brand-mark">U</span><span>USA <b>REAL ESTATE</b></span></a>
+    <a class="brand footer-brand" href="#"><span class="brand-mark">U</span><span>USA <b>TOLET</b></span></a>
     <p>Helping you find your place across America.</p>
-    <div><a href="privacy.html">Privacy</a><a href="admin.html">Admin</a></div>
-    <small>© <span id="year"></span> USA Real Estate. All rights reserved.</small>
+    <div><a href="privacy.html">Privacy</a><a href="staff.html">Staff</a><a href="admin.html">Admin</a></div>
+    <small>© <span id="year"></span> USA Tolet. All rights reserved.</small>
   </footer>
-
-  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Property photos">
-    <button type="button" class="lb-close" id="lbClose" aria-label="Close photos">×</button>
-    <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">‹</button>
-    <img id="lbImg" alt="">
-    <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next photo">›</button>
-    <span class="lb-count" id="lbCount" aria-live="polite"></span>
-  </div>
 </body>
 </html>
